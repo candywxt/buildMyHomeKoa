@@ -4,7 +4,7 @@ const logger = require("koa-logger");
 const bodyParser = require("koa-bodyparser");
 const fs = require("fs");
 const path = require("path");
-const { init: initDB, Counter } = require("./db");
+const { init: initDB, User, Fitment, WorkerMember } = require("./db");
 
 const router = new Router();
 
@@ -14,6 +14,14 @@ const homePage = fs.readFileSync(path.join(__dirname, "index.html"), "utf-8");
 router.get("/", async (ctx) => {
   ctx.body = homePage;
 });
+
+// 数据同步云端
+router.post("/api/cloudFitment", async (ctx) => {
+  // 获取用户的openId
+  if (ctx.request.headers["x-wx-source"]) {
+    const openId = ctx.request.headers["x-wx-openid"];
+  }
+})
 
 // 更新计数
 router.post("/api/count", async (ctx) => {
@@ -42,6 +50,21 @@ router.get("/api/count", async (ctx) => {
     data: result,
   };
 });
+
+// 获取计数
+router.get("/api/workerList", async (ctx) => {
+  const result = await WorkerMember.findAll({ limit: 10 });
+  ctx.body = {
+    code: 0,
+    data: result,
+  };
+});
+
+// 登陆
+
+router.post("/api/login", async (ctx) => {
+
+})
 
 // 小程序调用，获取微信 Open ID
 router.get("/api/wx_openid", async (ctx) => {
