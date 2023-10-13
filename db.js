@@ -11,45 +11,44 @@ const sequelize = new Sequelize("nodejs_demo", MYSQL_USERNAME, MYSQL_PASSWORD, {
   dialect: "mysql" /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */,
 });
 
-// 用户数据模型
-const User = sequelize.define("User", {
-  uid: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: '',
-  },
-  nickName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: '',
-  },
-  avatar: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: '',
-  }
-});
+// // 用户数据模型
+// const User = sequelize.define("User", {
+//   uid: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//     defaultValue: '',
+//   },
+//   nickName: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//     defaultValue: '',
+//   },
+//   avatar: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//     defaultValue: '',
+//   }
+// });
 
 // 用户装修数据模型
-const Fitment = sequelize.define("Fitment", {
-  uid: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: '',
-  },
-  data: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: '',
-  }
-});
+// const Fitment = sequelize.define("Fitment", {
+//   uid: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//     defaultValue: '',
+//   },
+//   data: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//     defaultValue: '',
+//   }
+// });
 
 // 用户装修数据模型
 const WorkerMember = sequelize.define("WorkerMembers", {
   uid: {
     type: DataTypes.BIGINT,
     allowNull: false,
-    defaultValue: '',
   },
   firstName: {
     type: DataTypes.STRING,
@@ -59,12 +58,10 @@ const WorkerMember = sequelize.define("WorkerMembers", {
   age: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: '',
   },
   sex: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: '',
   },
   workerType: {
     type: DataTypes.STRING,
@@ -94,7 +91,6 @@ const WorkerMember = sequelize.define("WorkerMembers", {
   practice: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: '',
   }
 });
 
